@@ -1,0 +1,116 @@
+package okey.controller;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import okey.model.Color;
+import okey.model.Number;
+import okey.model.Stone;
+public class OkeyController {
+	
+	
+	// Taþlarý deðerlerine göre üreteceðiz
+	public List<Stone> createAndMixOkeyStones(){
+		 List<Stone> list=new ArrayList<Stone>();
+
+		int stoneValue=0;
+			//create
+		for(int j=0;j<Color.values().length;j++)
+			for(int i=0;i<Number.values().length;i++)
+				for(int k=0;k<2;k++)
+				{
+					stoneValue=stoneValue+1;
+					Stone stone= new Stone(Number.getEnum(i+1).name()+" - "+ Color.getEnum(j).name(), stoneValue, false, false,j,i+1);
+					list.add(stone);
+				}
+		//sahte okey
+		Stone stone1= new Stone("sahte OKEY", stoneValue+1, false, false, null, null);
+		stone1.setFakeOkey(true);
+		list.add(stone1);
+		Stone stone2= new Stone("sahte OKEY", stoneValue+2, false, false, null, null);
+		stone2.setFakeOkey(true);
+		list.add(stone2);
+
+		
+			//create
+		
+		
+			//mix
+		 List<Stone> mixList=new ArrayList<Stone>();
+
+		Random rand = new Random();
+
+		for(int i=106;i>0;i--)
+		{
+			int  n = rand.nextInt(i) ;
+			mixList.add(list.get(n));
+			list.remove(n);
+		}
+		
+			//mix
+		
+		return mixList;
+	}
+	
+	// karýþtýrýlmýþ taþlardan en alttakini açýp 
+	//okey olan taþlarý iþaretleyeceðiz.
+	public List<Stone> findIsOpenAndIsOkey(List<Stone> mixStones){
+		Stone selected=null;
+		Integer okeyNumber=0;
+		Integer okeyColor=0;
+		int intUseLast=105;
+		if(mixStones.get(intUseLast).isFakeOkey())
+			if(mixStones.get(intUseLast--).isFakeOkey())
+				if(mixStones.get(intUseLast--).isFakeOkey())
+					
+		mixStones.get(105).setIsOpened(true);
+		selected=mixStones.get(105);
+		okeyColor=selected.getStoneColor();
+		if(selected.getStoneNumber()<13)
+		okeyNumber= selected.getStoneNumber()+1;
+		if(selected.getStoneNumber()==13)
+			okeyNumber= 1;
+		for(int i=103;i>-1;i--)
+		{
+			if(!mixStones.get(i).getIsOpened() && mixStones.get(i).getStoneNumber()==okeyNumber && mixStones.get(i).getStoneColor()==okeyColor)
+			{
+				mixStones.get(i).setIsOkey(true);
+			}
+		}
+		
+		return mixStones;
+	}
+	
+	
+	//Karýþtýrýlmýþ taþlarý daðýtacaðýz. 5 farklý liste olarak göndereceðiz.
+	// Bunlardan 4 tanesi 15 14 14 14 olacak þekilde 1 tanesi de kalan taþlar olacaktýr.
+    public ArrayList<List<Stone>> distributeOkeyStones(List<Stone> mixStones){
+    	ArrayList<List<Stone>> hands= new ArrayList<List<Stone>>();
+    	 List<Stone> list=new ArrayList<Stone>();
+    	for(int i=0;i<4;i++){
+    	hands.add(list);
+    	}
+		int count=0;
+    	for(int k=0;k<2;k++) //TUR
+    	{
+    		for(int i=0;i<4;i++)  // KÝÞÝLER
+    		{
+    			for(int j=0;j<7;j++)  //her bir 7 taþ 
+    			{
+    			
+    				hands.get(i).add(mixStones.get(count));
+    				count=count+1;
+    			}	
+    		}
+    	}
+		hands.get(0).add(mixStones.get(count));// artý bir taþ 
+		return hands;
+	}
+    //en iyi eli bulmaya çalýþacaðýz ve sonrasýndada bunu döneceðiz.
+ public List<Stone> findBestOfHands(ArrayList<List<Stone>> hands){
+		
+		
+		
+		return null;
+	}
+}

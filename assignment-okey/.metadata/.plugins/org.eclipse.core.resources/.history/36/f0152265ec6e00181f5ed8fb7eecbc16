@@ -1,0 +1,46 @@
+package okey.model;
+
+public class Okey {
+
+	
+	//Taþ Adý
+	String stoneName;
+	//taþ Deðeri
+	Integer stoneValue;
+	//Okey midir?
+	Boolean isOkey;
+	//açýlan taþmýdýr.
+	Boolean isOpened;
+	
+	public Okey(String stoneName,Integer stoneValue,Boolean isOkey,Boolean isOpened) {
+	this.stoneName=stoneName;
+	this.stoneValue=stoneValue;
+	this.isOkey=isOkey;
+	this.isOpened=isOpened;
+	}
+	public Boolean getIsOkey() {
+		return isOkey;
+	}
+	public void setIsOkey(Boolean isOkey) {
+		this.isOkey = isOkey;
+	}
+	public Boolean getIsOpened() {
+		return isOpened;
+	}
+	public void setIsOpened(Boolean isOpened) {
+		this.isOpened = isOpened;
+	}
+	public String getStoneName() {
+		return stoneName;
+	}
+	public void setStoneName(String stoneName) {
+		this.stoneName = stoneName;
+	}
+	public Integer getStoneValue() {
+		return stoneValue;
+	}
+	public void setStoneValue(Integer stoneValue) {
+		this.stoneValue = stoneValue;
+	}
+	
+}

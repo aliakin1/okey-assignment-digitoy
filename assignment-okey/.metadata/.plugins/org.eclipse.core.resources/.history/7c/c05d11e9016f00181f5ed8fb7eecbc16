@@ -1,0 +1,13 @@
+package okey.controller;
+
+public class OkeyRules {
+
+	
+	public int winWithDouble(){
+		
+	}
+	public int winWithSequence()
+	{
+		
+	}
+}

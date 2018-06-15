@@ -1,0 +1,25 @@
+package okey.start;
+
+public class Main {
+
+	public static void main()
+	{
+		List<Okey> stones =new List<Okey>();
+		ArrayList<List<Okey>> hands=new ArrayList<List <Okey>>();
+
+		
+		
+		//create and Mix Stones
+		
+		//Select the opened Stone and choose the okey stone
+		
+		//Distribute Stones to four hands
+		
+		// Choose the best Hand
+		
+		
+		
+		
+	}
+	
+}

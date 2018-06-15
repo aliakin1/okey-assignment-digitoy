@@ -1,0 +1,39 @@
+package okey.model;
+
+public enum Numbers {
+	one(1),
+	two(2),
+	three(3),
+	four(4),
+	five(5),
+	six(6),
+	seven(7),
+	eight(8),
+	nine(9),
+	ten(10),
+	eleven(11),
+	twelve(12),
+	thirteen(13),
+
+	  private final int value;
+
+    private Numbers(int value) {
+        this.value = value;
+    }
+
+    public static Numbers getEnum(int value) {
+        for (OperationType durum : OperationType.values()) {
+            if (durum.getValue() == value) {
+                return durum;
+            }
+        }
+        return OperationType.BOHM_DIGER;
+    }
+
+    public int getValue() {
+        return value;
+    }
+}
+
+
+

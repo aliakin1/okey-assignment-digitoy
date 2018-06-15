@@ -1,0 +1,20 @@
+package okey.controller;
+
+public class OkeyRules {
+
+	
+	public int  getValueOfWin(){
+		
+		return 0;
+	}
+	
+	
+	
+	public int winWithDouble(){
+		return 0;
+	}
+	public int winWithSequence()
+	{
+		return 0;
+	}
+}

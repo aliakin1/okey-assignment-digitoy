@@ -1,0 +1,10 @@
+package okey.model;
+
+public enum Colors {
+	
+	sari,
+	kirmizi,
+	siyah,
+	mavi
+
+}

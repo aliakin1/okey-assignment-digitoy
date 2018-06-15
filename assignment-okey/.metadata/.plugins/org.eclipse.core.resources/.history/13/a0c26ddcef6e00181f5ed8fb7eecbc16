@@ -1,0 +1,30 @@
+package okey.model;
+
+public enum Color {
+	
+	sari(0),
+	kirmizi(1),
+	siyah(2),
+	mavi(3);
+
+	 private final int value;
+
+	    private Number(int value) {
+	        this.value = value;
+	    }
+
+	    public static Number getEnum(int value) {
+	        for (Number durum : Number.values()) {
+	            if (durum.getValue() == value) {
+	                return durum;
+	            }
+	           
+	        }
+	        return null;
+	     
+	    }
+
+	    public int getValue() {
+	        return value;
+	    }
+}

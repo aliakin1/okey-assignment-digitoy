@@ -1,0 +1,97 @@
+package okey.controller;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import okey.model.Color;
+import okey.model.Number;
+import okey.model.Stone;
+public class OkeyController {
+	
+	
+	// Taþlarý deðerlerine göre üreteceðiz
+	public List<Stone> createAndMixOkeyStones(){
+		 List<Stone> list=new ArrayList<Stone>();
+
+		int stoneValue=0;
+			//create
+		for(int j=0;j<Color.values().length;j++)
+			for(int i=0;i<Number.values().length;i++)
+				for(int k=0;k<2;k++)
+				{
+					stoneValue=stoneValue+1;
+					Stone stone= new Stone(Number.getEnum(i+1).name()+" - "+ Color.getEnum(j).name(), stoneValue, false, false,j,i+1);
+					list.add(stone);
+				}
+			//create
+		
+		
+			//mix
+		 List<Stone> mixList=new ArrayList<Stone>();
+
+		Random rand = new Random();
+
+		for(int i=104;i>0;i--)
+		{
+			int  n = rand.nextInt(i) ;
+			mixList.add(list.get(n));
+			list.remove(n);
+		}
+		
+			//mix
+		
+		return mixList;
+	}
+	
+	// karýþtýrýlmýþ taþlardan en alttakini açýp 
+	//okey olan taþlarý iþaretleyeceðiz.
+	public List<Stone> findIsOpenAndIsOkey(List<Stone> mixStones){
+		Stone selected=null;
+		Integer okeyNumber=0;
+		Integer okeyColor=0;
+		mixStones.get(103).setIsOpened(true);
+		selected=mixStones.get(103);
+		okeyColor=selected.getStoneColor();
+		if(selected.getStoneNumber()<13)
+		okeyNumber= selected.getStoneNumber()+1;
+		if(selected.getStoneNumber()==13)
+			okeyNumber= 1;
+		for(int i=103;i>-1;i--)
+		{
+			if(!mixStones.get(i).getIsOpened() && mixStones.get(i).getStoneNumber()==okeyNumber && mixStones.get(i).getStoneColor()==okeyColor)
+			{
+				mixStones.get(i).setIsOkey(true);
+			}
+		}
+		
+		return mixStones;
+	}
+	
+	
+	//Karýþtýrýlmýþ taþlarý daðýtacaðýz. 5 farklý liste olarak göndereceðiz.
+	// Bunlardan 4 tanesi 15 14 14 14 olacak þekilde 1 tanesi de kalan taþlar olacaktýr.
+    public ArrayList<List<Stone>> distributeOkeyStones(List<Stone> mixStones){
+    	ArrayList<List<Stone>> hands= null;
+		int count=0;
+    	for(int k=0;k<2;k++)
+    	
+    		for(int i=0;i<4;i++)
+    		{
+    			for(int j=0;j<7;j++)
+    			{
+    			
+    				hands[i].add(mixStones[]);
+    			
+    			}	
+    		}
+		
+		return null;
+	}
+    //en iyi eli bulmaya çalýþacaðýz ve sonrasýndada bunu döneceðiz.
+ public List<Stone> findBestOfHands(ArrayList<List<Stone>> hands){
+		
+		
+		
+		return null;
+	}
+}

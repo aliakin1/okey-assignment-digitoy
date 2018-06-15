@@ -1,0 +1,26 @@
+package okey.controller;
+
+public class OkeyRules {
+
+	
+	public int  getValueOfWin(){  //minimum kalan taþ durumuna göre karar vereceðiz. 
+		
+		
+		
+		
+		return 0;
+	}
+	
+	
+	
+	public int winWithDouble()  //çifte giden kullanýcý için kaç taþ daha gerekli olduðunu döner
+	{
+		return 0;
+	}
+	public int winWithSequence()// sýralý olarak yaptýðýnda kaç taþý perler dýþýnda kalýyor.
+	{
+		
+		
+		return 0;
+	}
+}

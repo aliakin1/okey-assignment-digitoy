@@ -1,0 +1,33 @@
+package okey.start;
+
+import java.util.List;
+import java.util.ArrayList;
+import okey.controller.*;
+import okey.model.*;
+public class Main {
+
+	public static void main()
+	{
+		
+		// initialize all variables that we need
+		List<Okey> stones =null;
+		ArrayList<List<Okey>> hands=new ArrayList<List <Okey>>();
+
+		OkeyController oc= new OkeyController();
+		
+	
+		
+		//create and Mix Stones
+		
+		//Select the opened Stone and choose the okey stone
+		
+		//Distribute Stones to four hands
+		
+		// Choose the best Hand
+		
+		
+		
+		
+	}
+	
+}

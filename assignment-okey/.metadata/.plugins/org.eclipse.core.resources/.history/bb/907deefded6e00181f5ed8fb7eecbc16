@@ -1,0 +1,9 @@
+package okey.model;
+
+public enum Numbers {
+	  PENDING,
+	    ACTIVE,
+	    INACTIVE,
+	    DELETED;
+
+}

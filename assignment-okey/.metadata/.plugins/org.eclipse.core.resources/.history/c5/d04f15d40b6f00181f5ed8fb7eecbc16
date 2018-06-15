@@ -1,0 +1,55 @@
+package okey.controller;
+import java.util.List;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import okey.model.Color;
+import okey.model.Number;
+import okey.model.Stone;
+public class OkeyRules {
+
+
+	public int  getValueOfWin(List<Stone> hand){  //minimum kalan taþ durumuna göre karar vereceðiz. 
+
+		int countStoneDouble=0;
+		int countStoneSequence=0;
+
+		countStoneDouble=winWithDouble(hand);
+		//countStoneSequence=winWithSequence(hand);
+		//if(countStoneDouble*2 < countStoneSequence )
+			return countStoneDouble;
+	//	return countStoneSequence;
+	}
+
+
+
+	public int winWithDouble(List<Stone> hand)  //çifte giden kullanýcý için kaç taþ daha gerekli olduðunu döner
+	{
+		Iterator iterator = (Iterator) hand.iterator();
+		int countOfOkey=0;
+		for (Stone stone : hand) {
+			Stone stone=iterator.next();
+			if(stone.getIsOkey())
+			{
+				countOfOkey++;
+			}
+			for (Stone stone2 : hand) {
+				if(stone.getStoneNumber()==stone2.getStoneNumber() &&stone.getStoneColor()==stone2.getStoneColor() && stone.getStoneValue()!=stone2.getStoneValue() && !stone.getIsOkey() && !stone2.getIsOkey() )
+				{
+					hand.remove(stone);
+					hand.remove(stone2);
+					
+				}
+			}
+			
+		}
+		return hand.size()-(2*countOfOkey);
+		
+	}
+	public int winWithSequence(List<Stone> hand)// sýralý olarak yaptýðýnda kaç taþý perler dýþýnda kalýyor.
+	{
+
+
+		return 0;
+	}
+}
